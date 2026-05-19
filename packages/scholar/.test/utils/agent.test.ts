@@ -26,6 +26,28 @@ describe("agent", () => {
       }
     });
 
+    it("applies OPENAI_BASE_URL when provided", () => {
+      const originalModel = process.env.OPENAI_MODEL;
+      const originalBaseUrl = process.env.OPENAI_BASE_URL;
+      process.env.OPENAI_MODEL = "openai/gpt-4o";
+      process.env.OPENAI_BASE_URL = "https://example-proxy.invalid/v1";
+      try {
+        const agent = createReadingAgent("Prompt");
+        assert.equal(agent.state.model.baseUrl, "https://example-proxy.invalid/v1");
+      } finally {
+        if (originalModel !== undefined) {
+          process.env.OPENAI_MODEL = originalModel;
+        } else {
+          delete process.env.OPENAI_MODEL;
+        }
+        if (originalBaseUrl !== undefined) {
+          process.env.OPENAI_BASE_URL = originalBaseUrl;
+        } else {
+          delete process.env.OPENAI_BASE_URL;
+        }
+      }
+    });
+
     it("defaults to openai/gpt-oss-120b when env not set", () => {
       const original = process.env.OPENAI_MODEL;
       delete process.env.OPENAI_MODEL;

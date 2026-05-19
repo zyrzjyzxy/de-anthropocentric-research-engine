@@ -1,15 +1,40 @@
 import { resolve, basename } from "path";
 import { readFileSync, existsSync } from "fs";
+import { spawnSync } from "child_process";
 
 const APIFY_BASE = "https://api.apify.com/v2";
 const POLL_INTERVAL = 3000;
 const POLL_TIMEOUT = 600_000;
+const LOCAL_PDF_MARKDOWN_FALLBACK_MIN_CHARS = 200;
 
 export type ProgressCallback = (info: {
   message: string;
   current?: number;
   total?: number;
 }) => void | Promise<void>;
+
+function localPdfToMarkdown(source: string): string | null {
+  const fullPath = resolve(source);
+  if (!existsSync(fullPath)) return null;
+
+  const result = spawnSync(
+    "pdftotext",
+    ["-layout", "-enc", "UTF-8", fullPath, "-"],
+    {
+      encoding: "utf8",
+      maxBuffer: 64 * 1024 * 1024,
+    },
+  );
+
+  const stdout = result.stdout ?? "";
+  if (stdout.trim().length < LOCAL_PDF_MARKDOWN_FALLBACK_MIN_CHARS) return null;
+
+  // pdftotext uses form feeds between pages; convert them to paragraph breaks.
+  return stdout
+    .replace(/\f+/g, "\n\n")
+    .replace(/\r\n/g, "\n")
+    .trim();
+}
 
 function getToken(): string {
   const token = process.env.APIFY_TOKEN;
@@ -21,11 +46,13 @@ export async function content(
   source: string,
   onProgress?: ProgressCallback,
 ): Promise<string | null> {
+  const isRemote = source.startsWith("http://") || source.startsWith("https://");
+
   try {
     const token = getToken();
     let input: Record<string, unknown>;
 
-    if (source.startsWith("http://") || source.startsWith("https://")) {
+    if (isRemote) {
       input = { pdfUrls: [source], outputMode: "markdown" };
     } else {
       const fullPath = resolve(source);
@@ -40,7 +67,7 @@ export async function content(
 
     await onProgress?.({ message: "Starting conversion..." });
 
-    const startRes = await fetch(
+      const startRes = await fetch(
       `${APIFY_BASE}/acts/clearpath~pdf-to-markdown-api/runs?token=${token}`,
       {
         method: "POST",
@@ -48,7 +75,13 @@ export async function content(
         body: JSON.stringify(input),
       },
     );
-    if (!startRes.ok) return null;
+    if (!startRes.ok) {
+      if (!isRemote) {
+        await onProgress?.({ message: "Apify conversion unavailable, falling back to local pdftotext..." });
+        return localPdfToMarkdown(source);
+      }
+      return null;
+    }
 
     const startData = (await startRes.json()) as any;
     const runId: string = startData.data.id;
@@ -81,6 +114,10 @@ export async function content(
 
     return null;
   } catch {
+    if (!isRemote) {
+      await onProgress?.({ message: "Apify conversion failed, falling back to local pdftotext..." });
+      return localPdfToMarkdown(source);
+    }
     return null;
   }
 }
