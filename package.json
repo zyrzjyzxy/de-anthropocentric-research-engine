@@ -1,13 +1,18 @@
 {
-  "name": "dare",
-  "version": "2.0.0",
+  "name": "de-anthropocentric-research-engine",
+  "version": "3.0.0",
+  "description": "Complete research orchestration system — MCP dependencies for the yogsoth-ai research pipeline",
   "private": true,
-  "description": "DARE — De-Anthropocentric Research Engine",
-  "type": "module",
-  "workspaces": ["packages/*"],
-  "scripts": {
-    "test": "npm test -w packages/scholar -w packages/web -w packages/agents -w packages/ss",
-    "build": "npm run build --workspaces --if-present"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yogsoth-ai/de-anthropocentric-research-engine.git"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@apify/actors-mcp-server": "^0.10.4",
+    "@brave/brave-search-mcp-server": "^2.0.82",
+    "tavily-mcp": "^0.1.4",
+    "@yogsoth-ai/semantic-scholar-mcp": "^1.0.0",
+    "@yogsoth-ai/wiki-vault": "^1.2.1"
+  }
 }

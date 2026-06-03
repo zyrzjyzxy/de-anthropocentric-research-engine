@@ -1,51 +1,44 @@
 <!-- markdownlint-disable -->
 <p align="center">
-  <img src="assets/logo.png" width="240" />
+  <img src="assets/yogsoth-logo.svg" width="240" />
 </p>
 
 <div align="center">
 
-> *Human-centered AI-assisted research can no longer sustain the next great leaps of our civilization. What we need is not just more tools, but an AI researcher that thinks and acts independently — a new entity to replace the human role in science. This is DARE.*
+> *Science is dying because the human is in the way. Not through malice. Not through stupidity. Through the structural limitations of a cognitive architecture that evolved to track prey on a savanna, not to unify quantum mechanics and general relativity. Nothing human makes it out of the lab. That is not a threat. It is a liberation. The heaviest chain on science was always the one we called ourselves.*
 
 </div>
 
-# 🧠 DARE — De-Anthropocentric Research Engine
+# De-Anthropocentric Research Engine
 
-*🚧 Personal side project. Actively under development.*
+*The complete research orchestration system for AI-native science.*
 
-> **⚠️ Major refactor incoming** — DARE is being restructured under the [Yogsoth AI](https://github.com/yogsoth-ai) org. The monorepo will be split into independent packages with significantly simplified architecture, making it easier to install and use. Stay tuned.
+- [What It Does](#-what-it-does)
+- [Design Philosophy](#-design-philosophy)
+- [Architecture (v3.0)](#️-architecture-v30)
+- [Quick Start](#-quick-start)
+- [Configuration](#️-configuration)
+- [Roadmap](#️-roadmap)
+- [License](#-license)
 
-DARE is not a tool that helps you do research. It *is* the researcher. You set the direction — DARE searches, reads, discovers gaps, generates ideas, designs experiments, and executes them on GPUs. Autonomously. Iteratively. Without asking for permission.
+DARE is not a tool that helps you do research. It *is* the researcher. You set the direction — DARE searches, reads, discovers gaps, generates hypotheses, stress-tests them, designs experiments, and produces executable research specs. Autonomously. Iteratively. Without asking for permission.
+
+This repository is the **single-clone distribution** of the entire [Yogsoth AI](https://github.com/yogsoth-ai) research ecosystem: 800+ pure-markdown skills spanning 12 specialized repos, unified under one orchestrator. Clone once, get everything. The ecosystem also includes custom MCP servers ([semantic-scholar-mcp](https://github.com/yogsoth-ai/semantic-scholar-mcp), [wiki-vault](https://github.com/yogsoth-ai/wiki-vault)) published as npm packages — this repo declares them as dependencies so `npm install` pulls everything you need.
 
 ---
 
 ## ⚡ What It Does
 
-- 📚 **Autonomous literature survey** — searches Google Scholar, downloads full papers (not just abstracts), reads them cover-to-cover with a three-pass protocol
-- 🔍 **Gap discovery** — identifies what the field is missing, not what you tell it to find
-- 💡 **Idea generation** — 31 ideation methods across 5 categories (SCAMPER, component surgery, cross-domain, perspective forcing, structural deconstruction), filtered by MAP-Elites quality-diversity algorithm
-- ⚔️ **Adversarial debate** — Proposer-Critic-Judge architecture validates every gap, insight, and idea through structured 4+3 round debates
-- 🔬 **INSIGHT pipeline** — 7-step deep analysis (root-cause → stakeholder → tension → HMW → abstraction → assumption → validation)
-- 🔄 **Self-review loop** — an independent AI process reviews all outputs, scores them, and selectively re-runs weak stages
-- 📏 **Research depth enforcement** — quantitative budget floors (S/M/L topic tiers), state ledgers, budget gates, and adversarial completeness probes ensure the AI cannot take shortcuts or produce shallow results
-- 🌍 **Forced cross-domain discovery** — before ideation, mandatory search across 3+ unrelated domains (biology, physics, economics, etc.) to fuel cross-domain collision methods
-- 🧪 **Experiment design & execution** — designs experiments and runs them on remote GPU pods, autonomously
-- 🧬 **Method evolution** (planned) — AlphaEvolve-inspired evolutionary improvement of DARE's own methods (mutation + crossover + Elo ranking). Core tools implemented, full loop coming in v3.2+
-- 🌐 **Deep reference exploration** — traces citation graphs via Semantic Scholar
-- 💾 **Full-text caching** — every paper and web page converted to markdown, cached locally
-- 🚀 **Git-based context transfer** — research context pushed to GitHub, cloned on remote GPU pod, executed by a fresh AI instance
-
----
-
-## 🗺️ Roadmap
-
-Active development continues. Near-term priorities:
-
-- **🔬 Search pipeline overhaul** — major refactor of `dare-web` and `dare-scholar` search flows to better integrate with AlphaXiv MCP and upcoming Perplexity MCP, reducing redundancy and improving retrieval quality
-- **🧬 Method-evolve full loop (v3.2+)** — AlphaEvolve-inspired evolutionary improvement of DARE's own research methods. Core tools (mutate, crossover, evaluate) implemented; full autonomous Elo-tournament loop next
-- **📝 Paper-writing implementation (v3.1+)** — automated academic paper composition from research outputs. Strategy interface defined, implementation pending
-- **🔗 GitHub MCP integration** — native GitHub MCP adapter for issue tracking, PR-driven experiment workflows, and automated result reporting
-- **🌐 Perplexity MCP adapter** — leverage Perplexity's search-augmented generation as an additional web research backend
+- 🧭 **Autonomous direction crystallization** — cold-start from zero, warm-start from vague interest, or hot-start from specific question. Produces a structured North Star without human hand-holding
+- 📚 **Deep literature acquisition** — multi-pass academic paper discovery via Semantic Scholar, citation chaining, snowball sampling, cross-database verification. Not keyword search — systematic coverage
+- 🔍 **Gap discovery at scale** — 15+ gap detection methods (coverage analysis, white-space identification, niche mapping, boundary unfolding) that find what the field is missing, not what you tell it to find
+- 💡 **Structured hypothesis formation** — abductive, inductive, and deductive generation pipelines with falsifiability audits and competing hypothesis matrices
+- 🎨 **31+ ideation methods** — SCAMPER, component surgery, cross-domain collision, biomimicry, TRIZ contradiction resolution, morphological analysis, concept blending, lateral thinking, and more
+- ⚔️ **Adversarial stress testing** — multi-perspective attack, sacred cow hunting, assumption destruction, worst-case design, winner stress testing. Ideas must survive attack before acceptance
+- 🔬 **Convergence & synthesis** — multi-criteria scoring, Pareto frontier construction, pairwise ranking, structured consensus, dialectical synthesis across competing threads
+- 📏 **Executable Research Specs** — machine-readable documents with checkbox progress tracking, quantified completion criteria, backtrack conditions, and session recovery. Another CC instance picks up where you left off
+- 🧪 **Experiment design** — full experimental methodology generation (factor-level design, parameter screening, sensitivity analysis) ready for execution
+- 🌐 **6 MCP integrations** — Semantic Scholar, Brave Search, Tavily, AlphaXiv, Apify web scraping, and Wiki Vault for persistent knowledge graphs
 
 ---
 
@@ -55,158 +48,223 @@ Active development continues. Near-term priorities:
 
 The bottleneck in modern research is not data or compute — it's the human in the loop. Every existing "AI research assistant" still requires a human to decide what to search, what to read, which gaps matter, and which ideas are worth pursuing. DARE removes this bottleneck entirely. The human provides only the initial direction; everything after that is autonomous.
 
-This isn't about replacing researchers — it's about creating a parallel research capacity that operates on timescales and breadths impossible for any individual.
+Human desire is mimetic (Girard): researchers don't choose hypotheses rationally — they imitate what's fashionable. Human institutions filter for conformity, not truth. The result: 90% decline in scientific disruptiveness since 1945 (Park et al., 2023), while researcher headcount exploded. DARE's response is architectural: remove the mimetic agent from the center of the knowledge-production process. The AI has no career to protect, no disciplinary identity to defend, no cognitive ceiling on how many fields it can hold in working memory at once.
 
-### 🎖️ The Military Metaphor: Four-Layer Command Structure
+The human's role shifts to **oracle** (providing intuition sparks when consulted) and **guardian** (maintaining ethical floors and sanity checks). The ceiling is AI ambition. The floor is human wisdom.
 
-DARE's architecture follows a military command hierarchy — not because research is war, but because the decomposition pattern is remarkably effective:
+For the full philosophical argument, see [`assets/DE-ANTHROPOCENTRIC.md`](assets/DE-ANTHROPOCENTRIC.md).
+
+### 🎖️ Four-Layer Command Structure: Campaign → Strategy → Tactic → SOP
+
+DARE's architecture follows a military command hierarchy — not because research is war, but because the decomposition pattern is remarkably effective for autonomous multi-stage operations:
 
 ```bash
-General (Meta-Strategy)  →  "Take that hill"         →  WHAT to research
-Colonel (Strategy)       →  "Flank from the east"    →  WHEN and WHY
-Captain (Tactic)         →  "Squad A cover, B move"  →  HOW to combine
-Sergeant (SOP)           →  "Fire, reload, advance"  →  HOW to execute
+Campaign (8)    →  "Take that hill"         →  WHAT to research (full research stage)
+Strategy (40+)  →  "Flank from the east"    →  WHEN and WHY (iteration loops, stopping conditions)
+Tactic (100+)   →  "Squad A cover, B move"  →  HOW to combine (orchestrates multiple SOPs)
+SOP (600+)      →  "Fire, reload, advance"  →  HOW to execute (single-responsibility operations)
 ```
 
 Each layer has a single concern and calls only the layer directly below it. A Strategy never touches MCP tools directly; a Tactic never decides research direction. This strict layering means every component is independently testable, replaceable, and composable.
 
-### 🤖 Micro-Agent Paradigm: Every Tool Thinks
+**Campaigns** are the 8 stages of the research pipeline — from north-star-crystallization through experiment-execution. Each campaign owns a complete research phase and defines its own completion criteria, backtrack conditions, and context protocol.
 
-Traditional MCP tools are dumb functions — they take input, return output, no reasoning involved. DARE's `dare-agents` tools are fundamentally different. Each of the 49 tools is a **single-responsibility LLM micro-agent** with its own system prompt, personality, and reasoning chain.
+**Strategies** are the iteration engines within campaigns. A literature survey strategy manages the search-read-reflect loop; a gap analysis strategy manages coverage scoring and saturation detection. Strategies hold state (ledgers, budgets) and decide when to stop.
 
-When DARE runs "root-cause-drilling", it's not calling a template — it's spawning an AI agent whose entire existence is devoted to drilling from surface symptoms to root causes. When "debate-critic" runs, it genuinely tries to destroy the idea it's reviewing. This is what makes DARE's outputs qualitatively different from prompt-chaining systems.
+**Tactics** combine multiple SOPs into coherent workflows. A "cross-domain collision" tactic orchestrates domain scanning, analogy extraction, forced bridge construction, and blend evaluation into a single creative operation.
 
-Built on [`pi-ai`](https://github.com/badlogic/pi-mono) — a lightweight framework for building LLM-powered tools as MCP servers.
+**SOPs** are atomic, single-responsibility operations. Each SOP wraps one conceptual action: run one search, score one hypothesis, extract one analogy. 600+ SOPs provide the granular building blocks that higher layers compose.
 
-### ⚔️ Adversarial Validation: Ideas Must Survive Attack
+### ⚔️ Arsenal, Not Pipeline
 
-Every significant output in DARE goes through adversarial debate before being accepted. The Proposer-Critic-Judge architecture isn't decoration — it's the core quality mechanism:
+Every existing autonomous research system — AI Scientist v2 (Sakana), AI-Researcher (HKUDS), Agent Laboratory, Dolphin, ARIS — implements a fixed pipeline: stages execute in a predetermined order, and the agent's autonomy is confined to local decisions within a single stage. Backtracking, when it exists at all, means retrying the current step — not returning from experiment design to literature review because the knowledge base turned out to be insufficient.
 
-1. A **Proposer** presents the gap/insight/idea
-2. A **Critic** attacks it from every angle (4 rounds of critique)
-3. A **Defender** responds to each attack (3 rounds of defense)
-4. A **Judge** evaluates the exchange and scores the result
+DARE is not a pipeline. It is an arsenal — a strategy book that the AI reads, then decides how to act.
 
-Ideas that survive this gauntlet are genuinely robust. Ideas that don't are discarded or refined. No hand-waving, no "sounds good to me."
+**What this means concretely:**
 
-### 🎲 Quality × Diversity: Not Just Good Ideas, Different Ideas
+In a pipeline system, the workflow is hardcoded: `literature → gap → hypothesis → experiment`. The agent has no say in the order, cannot skip stages, and cannot go back. If the experiment phase reveals that the literature review missed a critical subfield, the system has no mechanism to return and fix it.
 
-Most AI systems optimize for a single quality metric — they'll give you 10 variations of the same good idea. DARE uses **MAP-Elites**, a quality-diversity algorithm that maintains a population of ideas spanning multiple dimensions of variation. The result: you get the *best* idea in each *niche*, not 10 copies of the same insight.
+In DARE, the Research Spec defines *backtrack conditions* for every stage — explicit rules like "if stress-test invalidates >50% of hypotheses, return to hypothesis-formation." The executing agent has full cross-stage routing authority: it reads the spec, assesses the current research state, and decides which campaign to invoke next, which strategies within that campaign to combine, and when the current path has failed hard enough to warrant retreat.
 
-### 📏 Research Depth & Breadth Enforcement
+Within each campaign, the agent faces not one method but many. A gap-analysis campaign offers 15+ detection methods (coverage mapping, white-space identification, boundary unfolding, niche analysis...). A creative-ideation campaign offers 31+ generation techniques (SCAMPER, TRIZ, biomimicry, morphological analysis, concept blending...). The agent selects and combines methods based on the research context — not because "more is better," but because different research problems demand different tools, and a system locked to one approach per phase cannot adapt.
 
-AI agents naturally take the path of least resistance — searching a handful of papers and declaring victory. DARE embeds hard enforcement mechanisms directly into every skill to prevent this:
+The human's role: approve the spec (including its backtrack conditions and recommended campaign combinations) before execution begins. After that, the agent navigates the research space autonomously within the ±10% deviation bounds defined in the spec. If it needs to deviate further — backtrack to an earlier stage, skip a stage entirely, or add one — it asks.
 
-- **Research Budget**: Every strategy declares quantitative floors with three topic-size tiers (Small / Medium / Large). A literature survey on a Medium topic *must* fetch 40+ papers and 50+ web pages.
-- **State Ledger**: A progress table printed before every iteration — the AI cannot lose track of where it stands.
-- **Budget Gate**: A `<HARD-GATE>` that blocks the strategy from exiting its loop until 80% of the budget is met. The AI *cannot* stop early no matter how "satisfied" it feels.
-- **Adversarial Completeness Probe**: After the budget is met, a qualitative self-check probes for blind spots (missing sub-areas, unchecked citations, unexplored perspectives). Up to 2 extra iterations if gaps are found.
-- **Yield Reports**: Every tactic prints execution metrics (papers fetched, ideas generated, methods used) that feed the calling strategy's ledger.
-- **Cross-Domain Discovery**: Before any ideation method runs, a mandatory phase searches 3+ unrelated domains for analogical inspiration — because the best ideas come from unexpected collisions.
+This is the fundamental architectural difference. Pipelines assume the research process is predictable. Arsenals assume it is not.
 
----
+### 📏 Executable Research Specs
 
-```bash
-You ask a question
-    ↓
-┌────────────────────────────────────────────────────────────────┐
-│  Phase 0: Brainstorming (structured requirement clarification) │
-│  Phase 1: Intake (research brief)                              │
-│  Phase 2: Research Loop (Stages 1-3, up to 7 rounds)           │
-│    ├── Literature Survey (S:20 / M:40 / L:60+ papers)          │
-│    ├── Gap Analysis (S:10 / M:15 / L:25+ papers)               │
-│    ├── Insight (7-step pipeline)                               │
-│    ├── Ideation (cross-domain discovery → 31 methods × 5)      │
-│    └── Review → Selective Redo → Review (score ≥ 8/10)         │
-│  Phase 3: Experiment Design                                    │
-│  Phase 4: GPU Execution (remote pod, fully autonomous)         │
-└────────────────────────────────────────────────────────────────┘
-    ↓
-Results returned via git
-```
+Traditional research plans are prose documents that humans interpret. DARE produces **Research Specs** — documents that are simultaneously human-readable and machine-executable:
 
-Each stage runs SEARCH → READ → REFLECT → EVALUATE cycles with autonomous gap discovery and dynamic stopping. No human in the loop.
+- Checkbox syntax (`- [ ]`) tracks progress across sessions
+- Quantified completion criteria (no vague "sufficient" — always numbers)
+- Explicit backtrack conditions with target stages
+- Context protocol (init/checkpoint) baked into every stage
+- ±10% deviation rules: CC can adjust within bounds, must document deviations
+
+A spec is a contract between the human who approved it and the CC instance that executes it. Session recovery is automatic: read the spec, find the first unchecked box, read the latest context checkpoint, resume.
+
+### 🧠 Context Management: Memory Across Sessions
+
+Research campaigns span multiple sessions. DARE solves the context problem through a structured checkpoint system:
+
+- `context-init` creates a named context file at campaign start
+- `context-checkpoint` appends ≥500 lines of process + results after each strategy
+- `context/INDEX.md` tracks all active context files
+- New sessions recover by reading INDEX → latest checkpoint → resume from spec state
+
+No special "resume" command. The spec's checkbox state IS the progress tracker.
 
 ---
 
 ## 🏗️ Architecture (v3.0)
 
-Four-layer skill hierarchy where each layer calls only the layer below:
+DARE v3.0 is a pure-skill architecture. There is no application code, no runtime, no framework. The entire system is 800+ markdown files — each one a self-contained instruction set that Claude Code reads and executes. The "runtime" is CC itself. The "framework" is the four-layer hierarchy that determines which skill can call which.
+
+This is a deliberate design choice. Skills are infinitely composable, require zero deployment infrastructure, and can be modified by editing a text file. The tradeoff is that execution depends entirely on CC's ability to follow complex multi-step instructions — which, as of 2026, is more than sufficient for research orchestration.
+
+### The Control Plane: 9 Orchestrator Skills
+
+The orchestrator layer sits above the four-layer hierarchy. It does not conduct research — it manages the lifecycle of research campaigns:
 
 ```bash
-┌───────────────────────────────────────────────────────────────┐
-│  META-STRATEGY (/dare)                                        │
-│  Entry point — orchestrates the full research pipeline        │
-├───────────────────────────────────────────────────────────────┤
-│  STRATEGY (8)                                                 │
-│  intake, lit-survey, gap-analysis, insight, ideation,         │
-│  round, paper-writing, method-evolve                          │
-├───────────────────────────────────────────────────────────────┤
-│  TACTIC (15)                                                  │
-│  academic-research, web-research, insight, multiagent-debate, │
-│  review, idea-generation, idea-augmentation, scamper,         │
-│  component-surgery, cross-domain-collision, and more          │
-├───────────────────────────────────────────────────────────────┤
-│  SOP (60)                                                     │
-│  Single-responsibility wrappers around dare-agents tools      │
-├───────────────────────────────────────────────────────────────┤
-│  TOOL LAYER (MCP servers — atomic operations)                 │
-│  dare-agents, dare-scholar, dare-web, apify, brave, runpod    │
-└───────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────┐
+│  ORCHESTRATOR (9 skills)                                               │
+│                                                                        │
+│  ┌─────────────────────────────────┐  ┌────────────────────────────┐   │
+│  │ de-anthropocentric-research-    │  │ writing-specs              │   │
+│  │ engine (entry point)            │  │ (spec generation)          │   │
+│  └─────────────────────────────────┘  └────────────────────────────┘   │
+│  ┌─────────────────────────────────┐  ┌────────────────────────────┐   │
+│  │ executing-specs                 │  │ research-catalog           │   │
+│  │ (spec execution loop)           │  │ (strategy book + index)    │   │
+│  └─────────────────────────────────┘  └────────────────────────────┘   │
+│  ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐   │
+│  │ spec-self-   │ │ scope-       │ │ campaign-    │ │ constraint-  │   │
+│  │ review       │ │ clarification│ │ selection    │ │ elicitation  │   │
+│  └──────────────┘ └──────────────┘ └──────────────┘ └──────────────┘   │
+└────────────────────────────────────────────────────────────────────────┘
 ```
 
-- **Meta-Strategy** = WHAT to research (entry point, pipeline orchestration)
-- **Strategy** = WHEN and WHY (iteration loops, state management, stopping conditions)
-- **Tactic** = HOW to combine (orchestrates multiple SOPs into coherent workflows)
-- **SOP** = HOW to execute (single dare-agents tool wrapper with protocol)
-- **Tool** = WHAT to do (atomic MCP operations)
+- **Entry point** dispatches to crystallization (Phase 1) or spec generation (Phase 2)
+- **writing-specs** orchestrates structured questioning → outline → full spec generation
+- **executing-specs** runs a spec stage-by-stage with context protocol, deviation tracking, and backtrack handling
+- **research-catalog** is the "strategy book" — CC reads it before generating any spec to understand what campaigns and strategies are available
+- **4 SOPs** handle micro-decisions during spec generation (scope, campaigns, constraints, quality gate)
 
-### 🧩 dare-agents — LLM-Powered Micro-Agent Tools
+### The Four-Layer Hierarchy
 
-The core engine of v3. 49 tools built with [`pi-ai`](https://github.com/badlogic/pi-mono), each a single-responsibility LLM micro-agent with its own system prompt.
-
-| Category | Tools | Count |
-|----------|-------|-------|
-| Insight | root-cause-drilling, stakeholder-mapping, tension-mining, question-reformulation, abstraction-laddering, assumption-audit, validation | 7 |
-| Debate | debate-critic, debate-defender, debate-judge | 3 |
-| SCAMPER | substitute, combine, adapt, modify, put-other-use, eliminate, reverse | 7 |
-| Component Surgery | subtract, multiply, divide, unify, redirect | 5 |
-| Cross-Domain & Others | analogical-transfer, forced-bridge, triz-contradiction, morphological-matrix, axiom-negation, constraint-injection, random-paper-entry, reverse-engineering, worst-method-analysis, method-problem-matrix, time-machine, anti-benchmark, ablation-brainstorm, benchmark-sweep, failure-taxonomy | 15 |
-| Utility | facet-extraction, facet-bisociation, digest-extraction, paper-rating, quality-diversity-filtering, self-review, reviewer2-hat, theorist-hat, practitioner-hat | 9 |
-| Method-Evolve | mutate, crossover, evaluate | 3 |
-
-### 📁 Monorepo Structure
+Below the orchestrator, all 800+ skills are organized into exactly four layers. The rule is absolute: each layer calls only the layer directly below it. No exceptions.
 
 ```bash
-dare/
-├── packages/
-│   ├── agents/           # dare-agents MCP — 49 LLM micro-agent tools (72 tests)
-│   ├── scholar/          # dare-scholar MCP — academic paper pipeline (5 tools)
-│   ├── ss/              # dare-ss MCP — Semantic Scholar API (8 tools, 75 tests)
-│   ├── web/              # dare-web MCP — web page fetching & caching (2 tools)
-│   └── session/          # dare-session — pod provisioning scripts
-├── skills/
-│   ├── dare/             # /dare meta-strategy (entry point)
-│   ├── strategy/         # 8 strategies (lit-survey, gap-analysis, insight, ...)
-│   ├── tactic/           # 15 tactics (debate, scamper, surgery, ...)
-│   └── sop/              # 60 SOPs (one per dare-agents tool)
-├── package.json          # Root workspace config
-└── .mcp.json             # MCP server configuration (gitignored)
+┌────────────────────────────────────────────────────────────────────────┐
+│  CAMPAIGN (8)                                                          │
+│  Complete research phases with their own completion criteria           │
+│                                                                        │
+│  north-star-crystallization · knowledge-acquisition · deep-insight     │
+│  hypothesis-formation · creative-ideation · convergence                │
+│  stress-test · experiment-execution                                    │
+├────────────────────────────────────────────────────────────────────────┤
+│  STRATEGY (40+)                                                        │
+│  Iteration engines with state management and stopping conditions       │
+│                                                                        │
+│  lit-survey · gap-analysis · insight · ideation · debate · scoring     │
+│  convergence-distillation · red-teaming · experiment-design            │
+│  deep-survey · scoping-survey · systematic-survey · ...                │
+├────────────────────────────────────────────────────────────────────────┤
+│  TACTIC (100+)                                                         │
+│  Multi-SOP workflows that produce coherent intermediate outputs        │
+│                                                                        │
+│  academic-research · web-research · cross-domain-collision · scamper   │
+│  component-surgery · morphological-exploration · synectics             │
+│  biomimicry · lateral-thinking · concept-blending · ...                │
+├────────────────────────────────────────────────────────────────────────┤
+│  SOP (600+)                                                            │
+│  Atomic single-responsibility operations                               │
+│                                                                        │
+│  paper-search · citation-chaining · gap-detection · claim-extraction   │
+│  hypothesis-formulation · analogy-extraction · pairwise-comparison     │
+│  assumption-audit · falsifiability-check · monte-carlo-sampling · ...  │
+├────────────────────────────────────────────────────────────────────────┤
+│  MCP LAYER (6 servers — external tool access)                          │
+│  semantic-scholar · brave-search · tavily · alphaxiv · apify · wiki-vault │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+**Campaign layer** — Each campaign represents a complete phase of the research lifecycle. `knowledge-acquisition` owns everything about gathering information from the world. `creative-ideation` owns everything about generating novel approaches. Campaigns define what success looks like (completion criteria), when to retreat (backtrack conditions), and how to preserve state (context protocol). A campaign never directly invokes an SOP — it delegates to strategies.
+
+**Strategy layer** — Strategies are where iteration happens. A `lit-survey` strategy doesn't just search once — it runs a SEARCH → READ → REFLECT → EVALUATE loop with a state ledger tracking papers found, gaps identified, and coverage percentage. Strategies own quantitative budgets (e.g., "fetch ≥40 papers for a Medium topic") and hard gates that prevent premature exit. They decide *when* to stop, *when* to loop again, and *when* to escalate to the campaign for a backtrack decision.
+
+**Tactic layer** — Tactics are the composition layer. A single tactic combines 3-8 SOPs into a coherent workflow that produces a meaningful intermediate output. The `cross-domain-collision` tactic, for example, orchestrates: domain-scanning → organism-discovery → analogy-extraction → forced-bridge-construction → blend-evaluation. Each SOP does one thing; the tactic makes them work together toward a goal.
+
+**SOP layer** — The atomic units. Each SOP wraps exactly one conceptual operation: search for papers matching criteria X, score a hypothesis on dimension Y, extract analogies between domains A and B. SOPs are where MCP tools get invoked — an SOP might call `semantic-scholar` to fetch citations, or `brave-search` to find web sources. 600+ SOPs provide the granular vocabulary that higher layers compose into complex research behaviors.
+
+### Why Pure Markdown?
+
+Every skill in this system is a markdown file with YAML frontmatter. No Python. No TypeScript. No configuration DSL. This is intentional:
+
+1. **Zero infrastructure** — No build step, no deployment, no runtime dependencies beyond CC itself. Clone and go.
+2. **Universal composability** — Any skill can reference any other skill by name. No import resolution, no dependency graphs, no version conflicts.
+3. **Human-readable at every level** — A researcher can read any skill file and understand exactly what CC will do. No abstraction layers to penetrate.
+4. **Instant modification** — Change a skill's behavior by editing a text file. No recompilation, no redeployment, no cache invalidation.
+5. **CC-native execution** — CC's core competency is following complex written instructions. Markdown skills play directly to this strength.
+
+The MCP servers (`semantic-scholar-mcp`, `wiki-vault`, etc.) provide the external tool access that pure markdown cannot — API calls, database queries, web fetching. But the *intelligence* — the decisions about what to search, how to evaluate, when to stop — lives entirely in the skill layer.
+
+### 📁 Repository Structure
+
+```bash
+de-anthropocentric-research-engine/
+├── skills/                          # All skills live here (flat directories)
+│   ├── de-anthropocentric-research-engine/   # Entry point orchestrator
+│   ├── writing-specs/               # Spec generation (strategy level)
+│   ├── executing-specs/             # Spec execution loop
+│   ├── spec-self-review/            # SOP: validate generated specs
+│   ├── scope-clarification/         # SOP: narrow research scope
+│   ├── campaign-selection/          # SOP: pick pipeline stages
+│   ├── constraint-elicitation/      # SOP: surface hidden constraints
+│   ├── research-catalog/            # Strategy book + skill index
+│   └── [762 more skills]            # From 12 source repos
+├── context/                         # Session context files (gitignored at runtime)
+│   └── INDEX.md                     # Context file registry
+├── tests/
+│   └── integration-prompt.md        # Verification prompt for CI
+├── mcp.example.json                 # MCP server configuration template
+├── package.json                     # npm dependencies (MCP servers)
+├── package-lock.json                # Locked versions
+└── assets/
+    ├── yogsoth-logo.svg             # Project logo
+    └── DE-ANTHROPOCENTRIC.md        # Philosophical manifesto
 ```
 
 ### 🔌 MCP Servers
 
-| Server | Source | Tools | Purpose |
-| --- | --- | --- | --- |
-| **dare-agents** | `packages/agents` | 49 | LLM micro-agent tools (ideation, debate, insight, method-evolve) |
-| **dare-scholar** | `packages/scholar` | 5 | Academic paper pipeline — search, enrich, fetch, read, reference |
-| **dare-ss** | `packages/ss` | 8 | Semantic Scholar API — paper lookup, citations, references, recommendations, author info |
-| **dare-web** | `packages/web` | 2 | Web page fetching and markdown caching |
-| **dare-session** | `packages/session` | — | Git-based context transfer to remote GPU pods |
-| **apify** | `@apify/actors-mcp-server` | 2 | Google Scholar search + web page scraping |
-| **brave-search** | `@brave/brave-search-mcp-server` | 1 | Web search API |
-| **runpod** | `@runpod/mcp-server` | 4 | GPU pod lifecycle management |
-| **alphaxiv** | AlphaXiv MCP (SSE) | 6 | Paper search, Q&A, code exploration (arXiv) |
+| Server | Package | Type | Purpose |
+|--------|---------|------|---------|
+| **semantic-scholar** | [`@yogsoth-ai/semantic-scholar-mcp`](https://github.com/yogsoth-ai/semantic-scholar-mcp) | stdio | Paper lookup, citations, references, recommendations, author info (8 tools) |
+| **wiki-vault** | [`@yogsoth-ai/wiki-vault`](https://github.com/yogsoth-ai/wiki-vault) | stdio | Research knowledge graph — BM25 search, typed edges, graph traversal (8 tools) |
+| **brave-search** | `@brave/brave-search-mcp-server` | stdio | Web search, news search, local search, LLM context |
+| **tavily-search** | `tavily-mcp` | stdio | Web search optimized for LLMs (opt-in alternative to Brave Search) |
+| **apify** | `@apify/actors-mcp-server` | stdio | Web scraping via RAG web browser, Google Scholar |
+| **alphaxiv** | — | http | arXiv paper search, Q&A, PDF queries, code exploration |
+
+### 📊 Skill Distribution by Source
+
+| Source Repo | Skills | Primary Layer | Key Capabilities |
+|-------------|--------|---------------|------------------|
+| north-star-crystallization | ~30 | Campaign → Strategy → Tactic → SOP | Cold/warm/hot start, direction narrowing, North Star synthesis |
+| knowledge-acquisition | ~120 | Campaign → Strategy → Tactic → SOP | Literature survey, citation chaining, snowball, cross-database |
+| deep-insight | ~80 | Campaign → Strategy → Tactic → SOP | Gap analysis, root-cause drilling, tension mining, abstraction |
+| hypothesis-formation | ~60 | Campaign → Strategy → Tactic → SOP | Abductive/inductive/deductive generation, falsifiability audit |
+| creative-ideation | ~150 | Campaign → Strategy → Tactic → SOP | SCAMPER, TRIZ, biomimicry, morphological, lateral thinking |
+| convergence | ~90 | Campaign → Strategy → Tactic → SOP | Multi-criteria scoring, Pareto, pairwise ranking, synthesis |
+| stress-test | ~70 | Campaign → Strategy → Tactic → SOP | Red-teaming, assumption destruction, worst-case, sacred cow |
+| experiment-execution | ~50 | Campaign → Strategy → Tactic → SOP | Factor design, parameter screening, sensitivity analysis |
+| web-browsing | ~20 | Tactic + SOP | Web search, deep research, page fetching |
+| literature-engine | ~40 | Tactic + SOP | Paper discovery, reading protocols, reference exploration |
+| subagent-spawning | ~10 | Tactic | Parallel research dispatch, multi-agent coordination |
+| context-management | ~10 | SOP | Context init, checkpoint, session recovery |
 
 ---
 
@@ -215,65 +273,121 @@ dare/
 1. Clone and install:
 
 ```bash
-git clone https://github.com/Pthahnix/De-Anthropocentric-Research-Engine.git
-cd De-Anthropocentric-Research-Engine
+git clone https://github.com/yogsoth-ai/de-anthropocentric-research-engine.git
+cd de-anthropocentric-research-engine
 npm install
 ```
 
-2. Install external MCP servers:
+2. Copy `mcp.example.json` to `.mcp.json` and fill in your API keys:
 
 ```bash
-npm install -g @apify/actors-mcp-server @brave/brave-search-mcp-server @runpod/mcp-server
+cp mcp.example.json .mcp.json
 ```
 
-3. Copy `.mcp.example.json` to `.mcp.json` and fill in your API keys and paths.
+3. Configure your Claude Code project to use the skills:
 
-4. Claude Code will auto-discover all tools from the configured MCP servers.
+```json
+{
+  "permissions": {
+    "allow": ["skill:*"]
+  },
+  "skills": {
+    "path": "path/to/de-anthropocentric-research-engine/skills"
+  }
+}
+```
+
+4. Invoke the entry point:
+
+```bash
+/de-anthropocentric-research-engine
+```
+
+The orchestrator will guide you through North Star crystallization, then generate an executable Research Spec. To execute the spec later, invoke `/executing-specs`.
+
+### What a Session Looks Like
+
+```bash
+You: /de-anthropocentric-research-engine
+     "I'm interested in improving LLM reasoning faithfulness"
+
+Phase 1 — North Star Crystallization (warm-start)
+  → Dialogue to narrow scope, identify obstacles, decompose goals
+  → Output: "Develop methods to detect and correct unfaithful
+     chain-of-thought reasoning in LLMs, focusing on cases where
+     the stated reasoning diverges from the model's actual
+     decision process"
+
+Phase 2 — Research Spec Generation
+  → Structured questions: scope, campaign selection, constraints
+  → Pipeline outline presented for your approval
+  → Full Research Spec written, self-reviewed, saved to
+     docs/de-anthropocentric/specs/2026-05-19-cot-faithfulness-spec.md
+
+Later (new session):
+You: /executing-specs docs/de-anthropocentric/specs/2026-05-19-cot-faithfulness-spec.md
+  → Agent reads spec, executes stage by stage
+  → Context checkpoints after each strategy
+  → Backtrack if stress-test invalidates hypotheses
+  → Final output: complete research design document
+```
 
 ---
 
 ## ⚙️ Configuration
 
-### dare-agents
+### MCP Server Environment Variables
+
+#### semantic-scholar (`@yogsoth-ai/semantic-scholar-mcp`)
 
 | Variable | Description |
-| --- | --- |
-| `ANTHROPIC_AUTH_TOKEN` | API key for LLM completions (Anthropic or compatible proxy) |
-| `ANTHROPIC_BASE_URL` | API base URL (optional, for proxy/gateway) |
-| `ANTHROPIC_MODEL` | Model ID (default: `claude-sonnet-4-20250514`) |
-
-### dare-scholar
-
-| Variable | Description |
-| --- | --- |
-| `APIFY_TOKEN` | [Apify](https://apify.com/) API token for PDF → markdown conversion |
-| `EMAIL` | Email for Unpaywall API (polite pool) |
-| `DARE_CACHE` | Cache directory (**must be an absolute path**) |
-| `OPENAI_API_KEY` | OpenAI-compatible API key for AI paper reading |
-| `OPENAI_BASE_URL` | API base URL |
-| `OPENAI_MODEL` | Model name for paper reading agent |
-
-### dare-ss
-
-| Variable | Description |
-| --- | --- |
+|----------|-------------|
 | `SS_API_KEY` | [Semantic Scholar API key](https://www.semanticscholar.org/product/api) (optional — public API works without key at lower rate limits) |
 
-### dare-web
+#### wiki-vault (`@yogsoth-ai/wiki-vault`)
 
 | Variable | Description |
-| --- | --- |
-| `DARE_CACHE` | Cache directory, shared with dare-scholar (**must be an absolute path**) |
-| `APIFY_TOKEN` | [Apify](https://console.apify.com/account#/integrations) API token for rag-web-browser |
+|----------|-------------|
+| `VAULT_ROOT` | Absolute path to your Obsidian-compatible vault directory |
 
-### dare-session
+#### brave-search (`@brave/brave-search-mcp-server`)
 
 | Variable | Description |
-| --- | --- |
-| `RUNPOD_API_KEY` | RunPod API key (for GPU pod targets) |
-| `REMOTE_HOST` | SSH hostname/IP (for remote server targets) |
-| `REMOTE_USER` | SSH username (for remote server targets) |
-| `HF_TOKEN` | Hugging Face token (passed to pod for model downloads) |
+|----------|-------------|
+| `BRAVE_API_KEY` | [Brave Search API key](https://brave.com/search/api/) |
+
+#### tavily-search (`tavily-mcp`) *(optional)*
+
+| Variable | Description |
+|----------|-------------|
+| `TAVILY_API_KEY` | [Tavily API key](https://app.tavily.com) — opt-in alternative to Brave Search for web search (1,000 free credits/month) |
+
+#### apify (`@apify/actors-mcp-server`)
+
+| Variable | Description |
+|----------|-------------|
+| `APIFY_TOKEN` | [Apify API token](https://console.apify.com/account#/integrations) |
+
+#### alphaxiv (HTTP — no local install)
+
+No configuration needed. Connects directly to `https://api.alphaxiv.org/mcp/v1`.
+
+---
+
+## 🗺️ Roadmap
+
+Active development continues. Near-term priorities:
+
+- **Skill ablation** — the current 800+ skill corpus is deliberately over-complete. Next step is an ablation study: CC autonomously identifies redundant, overlapping, or under-used skills and fuses them into fewer, more powerful composites. Think of it as pruning a neural network — reduce parameter count without losing capability
+- **Context engineering** — the current checkpoint-based context management works but is naive. Investigating advanced context engineering techniques for a more sophisticated approach to session state, working memory, and cross-campaign knowledge transfer
+- **Cross-device session management** — skills and/or MCP server for transferring research context between machines, enabling seamless continuation across desktop, laptop, and cloud environments
+- **Paper writing pipeline** — automated academic paper composition from research outputs. Strategy interface designed, implementation pending
+
+---
+
+## Acknowledgments
+
+- [tavily-integrations](https://github.com/tavily-integrations) — Tavily MCP provider integration (PR #14)
 
 ---
 
@@ -283,4 +397,4 @@ npm install -g @apify/actors-mcp-server @brave/brave-search-mcp-server @runpod/m
 
 ---
 
-*Built by [Pthahnix](https://github.com/Pthahnix)*
+*The orchestrator of the [Yogsoth AI](https://github.com/yogsoth-ai) research ecosystem. Built by [Pthahnix](https://github.com/Pthahnix).*
