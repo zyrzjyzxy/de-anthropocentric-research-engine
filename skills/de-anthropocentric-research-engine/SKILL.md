@@ -1,7 +1,13 @@
 ---
 name: de-anthropocentric-research-engine
-description: Top-level orchestrator for the yogsoth-ai research ecosystem. Drives the full research lifecycle from direction crystallization through experiment design.
+description: Top-level orchestrator for the yogsoth-ai research ecosystem. Drives
+  the full research lifecycle from direction crystallization through experiment design.
 execution: sequential
+dependencies:
+  sops:
+  - executing-specs
+  - research-catalog
+  - writing-specs
 ---
 
 # De-Anthropocentric Research Engine
@@ -15,12 +21,12 @@ Phase 2: Research Spec Generation (writing-specs)
 
 Phase 3 (Spec Execution) is invoked separately by the user after reviewing the spec.
 
-## Skill Index (custom workflow routing)
+## Capability Menu (custom workflow routing)
 
 If the user's request is a customized workflow that does not follow the standard
 North Star → Spec pipeline (e.g., user specifies exact campaigns to run, provides
 their own spec, or requests a non-standard combination of research activities),
-invoke `skill-index` immediately to understand the full capability landscape and
+invoke `research-catalog` immediately to understand the full capability landscape and
 route accordingly.
 
 ## Phase 1: North Star Crystallization
@@ -44,10 +50,10 @@ Before anything else, you must establish a clear research direction.
 
 Once the North Star is confirmed, transition to spec generation:
 
-### Skill Index Loading
+### Capability Menu Loading
 
-Before invoking `writing-specs`, invoke `skill-index` to load the full skill
-hierarchy. This ensures the Research Spec leverages the complete arsenal of
+Before invoking `writing-specs`, invoke `research-catalog` to load the capability
+menu. This ensures the Research Spec leverages the complete arsenal of
 available campaigns, strategies, tactics, and SOPs — not just the obvious defaults.
 
 1. Invoke `writing-specs` strategy
@@ -66,3 +72,17 @@ After the user reviews and approves the spec, they invoke `executing-specs` in a
 - Generate the spec yourself (delegate to writing-specs)
 - Skip North Star crystallization
 - Proceed without user confirmation at phase boundaries
+
+<!-- BEGIN available-tables (generated) -->
+
+## Available SOPs
+
+Optional, no fixed order; the final leaf is always a sop.
+
+| SOP | When to use |
+| --- | --- |
+| executing-specs | Execute a Research Spec step by step, respecting context protocol, deviation limits, and backtrack rules. Supports multi-session recovery. |
+| research-catalog | Capability menu for the research engine. Lists the 10 freely-composable research packages, what each does, when to reach for it, and a pointer to its full skill table. Read this after north-star crystallization to decide which packages to use — no fixed order. Also serves as the skill-index (capability map). |
+| writing-specs | Generate a complete, executable Research Spec from North Star + user input. Strategy-level skill that orchestrates questioning, outline, and spec writing. |
+
+<!-- END available-tables (generated) -->
