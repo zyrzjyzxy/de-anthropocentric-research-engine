@@ -1,6 +1,8 @@
 # Folders starting with a dot
 **.*/
 !**/.test/
+!.github/
+!.github/**
 
 # Node
 node_modules/
@@ -38,6 +40,7 @@ memory/
 cache/
 CODEX.md
 assets/logo-prompts.md
+channel/
 
 # infra-graphs test scratch artifacts (moved to top-level scripts/)
 scripts/**/_t*.html
